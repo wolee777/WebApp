@@ -1,0 +1,10 @@
+ 1. 10명의 학생 성적을 출력하는 프로그램(함수 사용)
+
+    hong 50 50 50 150 50.0 Fail		3
+    kim  90 90 90 270 90.0 Excellent	1
+    lee  70 70 70 210 70.0 Normal	2
+
+
+    kim  90 90 90 270 90.0 Excellent	1
+    lee  70 70 70 210 70.0 Normal	2
+    hong 50 50 50 150 50.0 Fail		3
