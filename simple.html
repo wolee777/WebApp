@@ -7,6 +7,10 @@
             .callout { border: solid 1px #ff0080; }
             .code { background: #ccc; margin: 1px 2px; padding: 1px 4px;
                     font-family: monospace; }
+            .highlight {
+                background: #ff0;
+                font-style: italic;
+            }
         </style>
     </head>
     <body>
@@ -16,15 +20,28 @@
         <div id="content">
             <p>This is a <i>simple</i> HTML file.</p>
             <div class="callout">
-                <p>This is an fancy as we'll get!</p>
+                <p>This is an fancy as we'll get!</b></p>
             </div>
             <p>IDs (such as <span class="code">#content</span>)
                are unique (there can only by one per page).</p>
             <p>Classes (such as <span class="code">.callout</span>)
                can be used on many elements.</p>
             <div id="callout2" class="callout fancy">
-                <p>A single HTML element can have multiple classes.</p>
+                <p>A single HTML element can have multiple classes. unique</b></p>
             <div>
+        </div>
+        <div>
+            <button data-action="highlight" data-containing="unique"
+                    onclick="highligthParas( 'unique' )" >
+                Highlight paragraphs containing "unique"
+            </button>
+            <button data-action="removeHighlights"
+                    onclick="removeParaHighlights()" >
+                Remove highlights
+            </button>
+            <button data-action="highlight">
+                append button
+            </button>
         </div>
         <script src="simple.js"></script>
     </body>

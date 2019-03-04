@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>WEB - HTML</title>
+        <meta charset="utf-8">
+		<link type="text/css" rel="stylesheet" href="scoretable.css" />
+    </head>
+    <body>
+        <h1><a href="scoretable.html">성적 처리 Web</a></h1>
+        <div id="in-scoreinfo">
+            <form>
+                <fieldset>
+                    <label for="name">이름</label>
+                    <input type="text" name="name" id="txt-name" />
+                    <label for="subject1">과목1 점수</label>
+                    <input type="text" name="subject1" id="txt-subject1" />
+                    <label for="subject2">과목2 점수</label>
+                    <input type="text" name="subject2" id="txt-subject2" />
+                    <label for="subject3">과목3 점수</label>
+                    <input type="text" name="subject3" id="txt-subject3" />
+                </fieldset>
+                <input type="button" name="btn-save" id="btn-save"
+                        value="저장" onclick="input_student()" />
+            </form>
+        </div>
+        <div id="pn-scoretable">
+            <table id="scoretable-input" border="1" >
+<!--
+                <caption>성적 일람표(입력순)<caption>
+                <thead>
+                    <tr>
+                        <th id="th-name" >이름</th>
+                        <th id="th-subject1">과목1</th>
+                        <th id="th-subject2">과목2</th>
+                        <th id="th-subject3">과목2</th>
+                        <th id="th-total">총점</th>
+                        <th id="th-average">평균</th>
+                        <th id="th-grade">평가</th>
+                        <th id="th-rank">석차</th>
+                    </tr>
+                <tbody class="pn-score">
+                    <tr>
+                        <td id="td-name" >hong</td>
+                        <td class="td-subject">50</td>
+                        <td class="td-subject">50</td>
+                        <td class="td-subject">50</td>
+                        <td id="td-total">150</td>
+                        <td id="td-average">50.0</td>
+                        <td id="td-grade">fail</td>
+                        <td id="td-rank">1</td>
+                    </tr>
+                </tbody>
+-->
+            </table>
+        </div>
+        <script src="scoretable.js"></script>
+    </body>
+</html>

@@ -1,0 +1,61 @@
+body {
+    margin: 0px;
+}
+
+h1 {
+    font-size: 45px;
+    text-align: center;
+    //border-bottom: 3px solid black;
+    margin: 0px;
+    padding: 20px;
+}
+
+caption {
+    font-size: 25px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+label {
+    display: inline-block;
+    width: 120px;
+}
+
+input {
+    display: inline-block;
+    width: 160px;
+}
+
+#in-scoreinfo {
+    margin-top: 30px;
+}
+
+#btn-save {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.pn-score {
+    width: 100%;
+    float: center;
+}
+
+#td-name {
+    width: 100px;
+    text-align: left;
+}
+
+.td-subject #td-rank {
+    width: 50px;
+    text-align: right;
+}
+
+#td-total #td-average {
+    width: 120px;
+    text-align: right;
+}
+
+#td-grade {
+    width: 150px;
+    text-align: left;
+}

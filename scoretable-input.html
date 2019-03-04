@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>WEB - HTML</title>
+        <meta charset="utf-8">
+		<link type="text/css" rel="stylesheet" href="scoretable.css" />
+    </head>
+    <body>
+        <h1><a href="scoretable.html">성적 처리 Web</a> - 학생 성적 입력</h1>
+        <div id="grid">
+            <ol>
+                <li><a href="scoretable-input.html">학생 성적 입력</a></li>
+                <li><a href="scoretable-print.html">성적 일람표 출력</a></li>
+                <li><a href="scoretable-search.html">학생 검색</a></li>
+            </ol>
+        </div>
+        <div id="article">
+            <form>
+                <fieldset>
+                    <label for="name">이름</label>
+                    <input type="text" name="name" id="name" />
+                    <label for="subject1">과목1 점수</label>
+                    <input type="text" name="subject1" id="subject1" />
+                    <label for="subject2">과목2 점수</label>
+                    <input type="text" name="subject2" id="subject2" />
+                    <label for="subject3">과목3 점수</label>
+                    <input type="text" name="subject3" id="subject3" />
+                </fieldset>
+                <input type="button" name="btn-save" id="btn-save"
+                        value="저장" onclick="input_student()" />
+            </form>
+        </div>
+        <script src="scoretable.js"></script>
+    </body>
+</html>
