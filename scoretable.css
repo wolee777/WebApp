@@ -5,9 +5,13 @@ body {
 h1 {
     font-size: 45px;
     text-align: center;
-    //border-bottom: 3px solid black;
+    border-bottom: 1px solid black;
     margin: 0px;
     padding: 20px;
+}
+
+li {
+    list-style: none;
 }
 
 caption {
@@ -18,7 +22,9 @@ caption {
 
 label {
     display: inline-block;
+    text-align: left;
     width: 120px;
+    line-height: 25px;
 }
 
 input {
@@ -27,35 +33,24 @@ input {
 }
 
 #in-scoreinfo {
-    margin-top: 30px;
-}
-
-#btn-save {
-    width: 100%;
     margin-top: 10px;
 }
 
-.pn-score {
-    width: 100%;
-    float: center;
+#pn-scoretable {
+    margin-top: 50px;
 }
 
-#td-name {
-    width: 100px;
-    text-align: left;
+#pn-sortScoretable {
+    margin-top: 50px;
 }
 
-.td-subject #td-rank {
-    width: 50px;
-    text-align: right;
+#btn-save {
+    width: 20%;
+    margin-top: 10px;
+    margin-left: 20px;
 }
 
-#td-total #td-average {
-    width: 120px;
-    text-align: right;
-}
-
-#td-grade {
-    width: 150px;
-    text-align: left;
+#btn-search {
+    width: 160px;
+    margin: 5px;
 }
