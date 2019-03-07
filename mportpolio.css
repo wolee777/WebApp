@@ -7,7 +7,7 @@ header, footer { text-align: center; }
 body { margin: auto; }
 footer { position: fixed; bottom: 0px; }
 
-h1 { padding: 15px; font-size: 30px; color: white; }
+h1 { padding: 15px; font-size: 30px; color: black; }
 h2 { font-size: 15px; color: white; }
 h3 { margin: 10px; font-size: 15px; color: green; text-shadow: 4px 4px 7px green; }
 h1, h2 { background-image: url( html-logo.png ); background-repeat: repeat-x; }
