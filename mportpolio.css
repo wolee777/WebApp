@@ -29,7 +29,7 @@ nav > span > a:hover { background: #ff00ff; color: white; }
 
 #stu-pic { width: 6em; height: 8em; float: left; }
 
-.portal { width: 30%; height: 30%; }
+.portal { width: 20%; height: 30%; }
 
 #year-table { table-layout: auto; width: 80%; border-collapse: separate; }
 #year-table thead { background: #E4F2D0; }
