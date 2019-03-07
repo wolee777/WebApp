@@ -7,10 +7,10 @@ header, footer { text-align: center; }
 body { margin: auto; }
 footer { position: fixed; bottom: 0px; }
 
-h1 { padding: 15px; font-size: 30px; color: black; }
+h1 { padding: 15px; font-size: 30px; color: white; }
 h2 { font-size: 15px; color: white; }
 h3 { margin: 10px; font-size: 15px; color: green; text-shadow: 4px 4px 7px green; }
-h1, h2 { background-image: url( html-logo.png ); background-repeat: repeat-x; }
+h1, h2 { background-image: url( coding-825x500.jpg ); background-repeat: repeat-x; }
 img { border: 0; padding: 2px; }
 
 nav { margin: 5px 5px; }
@@ -28,6 +28,8 @@ nav > span > a:hover { background: #ff00ff; color: white; }
 .sectio0n1 ul li { list-style-position: inside; list-style-image: url( "html-logo.png" ); }
 
 #stu-pic { width: 6em; height: 8em; float: left; }
+
+.portal { width: 30%; height: 30%; }
 
 #year-table { table-layout: auto; width: 80%; border-collapse: separate; }
 #year-table thead { background: #E4F2D0; }
