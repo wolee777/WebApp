@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>jQuery mobile - app link</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+        <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+        <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    </head>
+    <body>
+        <div data-role="page" id="home">
+            <div data-role="header">
+                <h1>스마트 페이지 링크</h1>
+            </div>
+            <div data-role="content">
+                <h2>외부 프로그램 링크</h2>
+                <ul data-role="listivew" data-inset="true">
+                    <li><a href="mailto:hong@gmail.com">e-mail 링크</a></li>
+                    <li><a href="tel:01012345678" target="_blank">전화번호 링크</a></li>
+                    <li><a href="sms:01012345678" target="_blank">SMS 문자 링크</a></li>
+                    <li><a href="http://map.google.com">google map 링크</a></li>
+                </ul>
+            </div>
+            <div data-role="footer" class="ui-bar" data-position="fixed">
+            </div>
+        </div>
+    </body>
+</html>
