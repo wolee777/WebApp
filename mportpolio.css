@@ -1,3 +1,9 @@
+@media only screen and ( min-width: 321px ) and ( orientation: landscape ) {
+    section { width: 80%; float: left; }
+    aside { width: 20%; text-align: center; float: right; }
+    footer { clear: both; }
+}
+
 * { margin: 0px; padding: 0px; }
 header, body, footer {
     font-size: 14px; font-family: 나눔고딕, 굴림, 돋음, 'Times New Roman', serif;
@@ -19,11 +25,6 @@ nav > span > a { font-style: bold; margin: 0; padding: 3px; border: 2px solid pu
 }
 nav > span > a:hover { background: #ff00ff; color: white; }
 
-@media only screen and ( min-width: 321px ) and ( orientation: landscape ) {
-    section { width: 80%; float: left; }
-    aside { width: 20%; text-align: center; float: right; }
-    footer { clear: both; }
-}
 .content { clear: both; }
 .sectio0n1 ul li { list-style-position: inside; list-style-image: url( "html-logo.png" ); }
 
