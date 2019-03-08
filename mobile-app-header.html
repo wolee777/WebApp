@@ -10,21 +10,50 @@
     </head>
     <body>
         <div data-role="page" id="page1">
-            <div data-role="header">
-                <a href="#page1">home</a>
+            <div data-role="header" data-position="fixed">
+                <!-- <a href="#page1">home</a> -->
                 <h1>Page Title(Header Test)</h1>
-                <a href="#page2">Page 2</a>
+                <div data-role="navbar">
+                    <ul>
+                        <li><a href="#page2" class="ui-btn-active">Page 2</a></li>
+                        <li><a href="#">Page 3</a></li>
+                        <li><a href="#">Page 4</a></li>
+                    </ul>
+                </div>
             </div>
             <div data-role="content">
                 <p>Page content goes here. #1</p>
+                <p>Page content goes here. #1</p>
+                <p>Page content goes here. #1</p>
+                <p>Page content goes here. #1</p>
+                <p>Page content goes here. #1</p>
+                <p>Page content goes here. #1</p>
+                <p>Page content goes here. #1</p>
+                <p>Page content goes here. #1</p>
+                <p>Page content goes here. #1</p>
+                <p>Page content goes here. #1</p>
+                <p>Page content goes here. #1</p>
+                <p>Page content goes here. #1</p>
+                <p>Page content goes here. #1</p>
+                <p>Page content goes here. #1</p>
+                <p>Page content goes here. #1</p>
+                <p>Page content goes here. #1</p>
+                <p>Page content goes here. #1</p>
+                <p>Page content goes here. #1</p>
+                <p>Page content goes here. #1</p>
+                <p>Page content goes here. #1</p>
             </div>
-            <div data-role="footer">
-                <h4>Page Footer</h4>
+            <div data-role="footer" class="ui=bar" data-position="fixed">
+                <!-- <h4>Page Footer</h4> -->
+                <div data-role="controlgroup" date-type="horizonal">
+                    <a href="#page2">Page 2</a>
+                    <a href="#page3">Page 3</a>
+                </div>
             </div>
         </div>
         <div data-role="page" id="page2">
-            <div data-role="header">
-                <a href="#page1">home</a>                
+            <div data-role="header" data-add-back-btn="true" data-back-btn-text="이전" >
+                <a href="#page1" class="ui-btn-left">이전</a>
                 <h1>Page Title(Page 2)</h1>
             </div>
             <div data-role="content">

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>jQuery mobile - app</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.2/jquery.mobile-1.1.2.min.css" />
+        <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+        <script src="http://code.jquery.com/mobile/1.1.2/jquery.mobile-1.1.2.min.js"></script>
+    </head>
+    <body>
+        <div data-role="page" id="page1">
+        	<div data-role="header" data-position="fixed">
+        		<h1>Page 1</h1>
+        		<div data-role="navbar">
+        			<ul>
+        				<li><a href="#page1" class="ui-btn-active ui-state-persist">page 1</a></li>
+        				<li><a href="#page2">page 2</a></li>
+        				<li><a href="#page3">page 3</a></li>
+        			</ul>
+        		</div>
+        	</div>
+        	<div data-role="content">
+        		<p>content area</p>
+        		<h1>Page 1</h1>
+        	</div>
+        	<div data-role="footer" data-position="fixed" data-id="footerid1">
+        		<div data-role="navbar" >
+        			<ul>
+        				<li><a href="#" data-icon="plus">추가</a></li>
+        				<li><a href="#" data-icon="minus">삭제</a></li>
+        				<li><a href="#" data-icon="check" class="ui-btn-active ui-state-persist">확인</a></li>
+        			</ul>
+        		</div>
+        	</div>
+        </div>
+
+        <div data-role="page" id="page2">
+        	<div data-role="header" data-position="fixed">
+        		<h1>Page 2</h1>
+        		<div data-role="navbar" >
+        			<ul>
+        				<li><a href="#page1" data-direction="reverse">page1</a></li>
+        				<li><a href="#page2" class="ui-btn-active ui-state-persist">page2</a></li>
+        				<li><a href="#page3">page3</a></li>
+        			</ul>
+        		</div>
+        	</div>
+        	<div data-role="content">
+                <p>content area</p>
+        		<h1>Page 2</h1>
+        	</div>
+        	<div data-role="footer" data-position="fixed" data-id="footerid1">
+        		<div data-role="navbar" >
+        			<ul>
+        				<li><a href="#" data-icon="plus">추가</a></li>
+        				<li><a href="#" data-icon="minus">삭제</a></li>
+        				<li><a  data-icon="check" class="ui-btn-active ui-state-persist">확인</a></li>
+        			</ul>
+        		</div>
+        	</div>
+        </div>
+
+        <div data-role="page" id="page3">
+        	<div data-role="header" data-fullscreen="true" data-position="fixed">
+        		<h1>Page 3</h1>
+        		<div data-role="navbar" >
+        			<ul>
+        				<li><a href="#page1" data-direction="reverse">page1</a></li>
+        				<li><a href="#page2" data-direction="reverse">page2</a></li>
+        				<li><a href="#page3" class="ui-btn-active ui-state-persist">page3</a></li>
+        			</ul>
+        		</div>
+        	</div>
+        	<div data-role="content">
+                <p>content area</p>
+        		<h1>Page 3</h1>
+        	</div>
+        	<div data-role="footer" data-fullscreen="true" data-position="fixed" data-id="footerid1">
+        		<div data-role="navbar">
+        			<ul>
+        				<li><a href="#" data-icon="plus">추가</a></li>
+        				<li><a href="#" data-icon="minus">삭제</a></li>
+        				<li><a href="#" data-icon="check" class="ui-btn-active ui-state-persist">확인</a></li>
+        			</ul>
+        		</div>
+        	</div>
+        </div>
+    </body>
+</html>
