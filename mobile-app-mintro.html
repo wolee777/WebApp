@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>jQuery mobile - app</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="mobile-app-mportpolio.css" />
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.2/jquery.mobile-1.1.2.min.css" />
+        <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+        <script src="http://code.jquery.com/mobile/1.1.2/jquery.mobile-1.1.2.min.js"></script>
+    </head>
+    <body>
+        <div data-role="page" id="pintro">
+            <div data-role="header" data-position="fixed">
+                <h1>홍길동의 WebApp</h1>
+                <div data-role="navbar">
+                    <ul>
+                        <li><a href="#pcareer">경력</a></li>
+                        <li><a href="#pstudy">학술</a></li>
+                        <li><a href="#pinfo">인적</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div data-role="content">
+                <div class="intro">
+                    <h3>자기소개</h3>
+                    <img id="stu-pic" src="html-logo.png" />
+                    <p class="home">웹 애플리케이션(web application) 또는 웹 앱은 소프트웨어
+                    공학적 관점에서 인터넷이나 인트라넷을 통해 웹 브라우저에서
+                    이용할 수 있는 응용 소프트웨어를 말한다.
+                    웹 애플리케이션은 클라이언트로서 웹 브라우저를 사용하는
+                    사람이 많기 때문에 인기를 누리고 있다.
+                    수천만 대의 PC에 굳이 소프트웨어를 배포해서 설치하지 않아도
+                     웹 애플리케이션을 유지 관리할 수 있다는 점이 장점 중의 하나이다.
+                     웹 애플리케이션은 웹 메일, 온라인 전자상거래 및 경매, 위키,
+                     인터넷 게시판, 블로그 및 MMORPG 게임 등 다양한 기능을
+                     구현할 수 있다.
+                    </p>
+                </div>
+            </div>
+            <div data-role="footer" data-position="fixed" data-id="footerlink">
+                <div data-role="navbar" >
+                    <ul>
+                        <li><a href="http://m.naver.com" target="_blank" data-icon="star">Naver</a></li>
+                        <li><a href="http://m.google.com" target="_blank" data-icon="star">Google</a></li>
+                        <li><a href="http://m.daum.net" target="_blank" data-icon="star">Daum</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div data-role="page" id="pcareer">
+            <div data-role="header" data-position="fixed">
+                <h1>홍길동의 WebApp</h1>
+                <a href="#pintro" data-icon="home" class="ui-btn-left"></a>
+                <div data-role="navbar">
+                    <ul>
+                        <li><a href="#pcareer" data-icon="check" class="ui-btn-active ui-state-persist">경력</a></li>
+                        <li><a href="#pstudy">학술</a></li>
+                        <li><a href="#pinfo">인적</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div data-role="content">
+                <div class="career">
+                    <h3>세미나(연수)</h3>
+                        <ul>
+                            <li>2019. 3 지능형 IoT 플랫폼 취약점 분석 및 해킹/보안 전문가 양성과정</li>
+                        </ul>
+                    <h3>인턴쉽</h3>
+                        <ul>
+                            <li>2019. 3 지능형 IoT 플랫폼 취약점 분석 및 해킹/보안 전문가 양성과정</li>
+                        </ul>
+                    <h3>봉사</h3>
+                        <ul>
+                            <li>2019. 3 지능형 IoT 플랫폼 취약점 분석 및 해킹/보안 전문가 양성과정</li>
+                        </ul>
+                </div>
+            </div>
+            <div data-role="footer" data-position="fixed" data-id="footerlink">
+                <div data-role="navbar" >
+                    <ul>
+                        <li><a href="http://m.naver.com" target="_blank" data-icon="star">Naver</a></li>
+                        <li><a href="http://m.google.com" target="_blank" data-icon="star">Google</a></li>
+                        <li><a href="http://m.daum.net" target="_blank" data-icon="star">Daum</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div data-role="page" id="pstudy">
+            <div data-role="header" data-position="fixed">
+                <h1>홍길동의 WebApp</h1>
+                <a href="#pintro" data-icon="home" class="ui-btn-left"></a>
+                <div data-role="navbar">
+                    <ul>
+                        <li><a href="#pcareer">경력</a></li>
+                        <li><a href="#pstudy" data-icon="check" class="ui-btn-active ui-state-persist">학술</a></li>
+                        <li><a href="#pinfo">인적</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div data-role="content">
+                <div class="study">
+                    <h3>프로젝트</h3>
+                        <ul>
+                            <li>레고 NXT 실습</li>
+                        </ul>
+                    <h3>자격증</h3>
+                        <ul>
+                            <li>정보처리기사 1급</li>
+                        </ul>
+                    <h3>수상</h3>
+                        <ul>
+                            <li>교재 소프트웨어공모전 참여</li>
+                        </ul>
+                </div>
+            </div>
+            <div data-role="footer" data-position="fixed" data-id="footerlink">
+                <div data-role="navbar" >
+                    <ul>
+                        <li><a href="http://m.naver.com" target="_blank" data-icon="star">Naver</a></li>
+                        <li><a href="http://m.google.com" target="_blank" data-icon="star">Google</a></li>
+                        <li><a href="http://m.daum.net" target="_blank" data-icon="star">Daum</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div data-role="page" id="pinfo">
+            <div data-role="header">
+                <h1>홍길동의 WebApp</h1>
+                <a href="#pintro" data-icon="home" class="ui-btn-left"></a>
+                <div data-role="navbar">
+                    <ul>
+                        <li><a href="#pcareer">경력</a></li>
+                        <li><a href="#pstudy">학술</a></li>
+                        <li><a href="#pinfo" data-icon="check" class="ui-btn-active ui-state-persist">인적</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div data-role="content">
+                <div class="info">
+                    <h3>인적사항</h3>
+                        <ul>
+                            <li>성    명 : 홍길동</li>
+                            <li>생년월일 : 2019.  3. 07</li>
+                            <li>주    소 : 서울시 당산역</li>
+                            <li>연 락 처 : 010 - 1234 - 5678</li>
+                            <li>학    력 :
+                                <table id="year-table" border="1">
+                                    <thead>
+                                        <tr><th>졸업년도</th><th>출신학교</th></tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr><td>2003. 2</td><td> 과거초등학교 졸업</td></tr>
+                                        <tr><td>2006. 2</td><td> 오늘중학교 졸업</td></tr>
+                                        <tr><td>2009. 2</td><td> 미래고등학교 졸업</td></tr>
+                                        <tr><td>2014. 2</td><td> 아주미래 대학교 졸업</td></tr>
+                                    </tbody>
+                                </table>
+                            </li>
+                        </ul>
+                </div>
+            </div>
+            <div data-role="footer" data-position="fixed" data-id="footerlink">
+                <div data-role="navbar" >
+                    <ul>
+                        <li><a href="http://m.naver.com" target="_blank" data-icon="star">Naver</a></li>
+                        <li><a href="http://m.google.com" target="_blank" data-icon="star">Google</a></li>
+                        <li><a href="http://m.daum.net" target="_blank" data-icon="star">Daum</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
