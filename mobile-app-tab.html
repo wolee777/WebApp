@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>jQuery mobile - app</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+        <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+        <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    </head>
+    <body>
+        <div data-role="page">
+            <div data-role="panel" id="panel1" data-display="overlay" data-theme="b">
+                <form>
+                    <h3>Login panel</h3>
+                    <label for="name">user name:</label>
+                    <input name="name" id="name" type="text" value=""
+                            data-mini="true" data-clear-btn="true">
+                    <label for="password">password:</label>
+                    <input name="password" id="password" type="password" value=""
+                            data-mini="true" data-clear-btn="true">
+                    <div class="ui-grid-a">
+                        <div class="ui-block-a"><a href="#" data-role="button" data-rel="close">cencel</a></div>
+                        <div class="ui-block-b"><a href="#" data-role="button" data-rel="close">save</a></div>
+                    </div>
+                </form>
+            </div>
+            <div data-role="panel" id="panel2" data-display="overlay">
+                <ul data-role="listview">
+                    <li data-icon="delete"><a href="#" data-rel="close">Menu panel close</a></li>
+                    <li><a href="#">menu 1</a></li>
+                    <li><a href="#">menu 2</a></li>
+                    <li><a href="#">menu 3</a></li>
+                    <li><a href="#">menu 4</a></li>
+                </ul>
+            </div>
+            <div data-role="panel" id="panel3" data-display="overlay" data-position="right">
+                <h3>Meno panel</h3>
+                <p>left memo panel area!!!</p>
+                <a href="#page1" data-role="button" data-rel="close" data-inline="true">panel close</a>
+            </div>
+            <div data-role="header">
+                <h1>Page Title(Home)</h1>
+            </div>
+            <div data-role="content">
+                <div data-role="controlgroup">
+                    <a href="#panel1" data-role="button" data-inline="true">Login panel</a>
+                    <a href="#panel2" data-role="button" data-inline="true">Menu panel</a>
+                    <a href="#panel3" data-role="button" data-inline="true">memo panel</a>
+                </div>
+                <br/ ><br />
+                <table class="ui-responsive table-stripe" id="my-table1"
+                       data-mode="columntoggle" data-role="table">
+                    <thead><tr>
+                           <th data-priority="2">class</th>
+    	                   <th>name</th>
+                           <th data-priority="3">sex</th>
+    	                   <th data-priority="1">score</th>
+	                       </tr>
+                    </thead>
+                    <tbody>
+                        <tr><th>1</th> <td>Hong</td> <td>male</td> <td>94</td></tr>
+	                    <tr><th>4</th> <td>Kim</td> <td>female</td> <td>77</td></tr>
+	                    <tr><th>3</th> <td>Lee</td> <td>female</td> <td>88</td></tr>
+        	        </tbody>
+	            </table>
+                <br />
+                <div data-role="tabs">
+                    <div data-role="navbar">
+                        <ul>
+                            <li><a href="#tab1" class="ui-btn-active">Tab 1</a></li>
+                            <li><a href="#tab2">Tab 2</a></li>
+                            <li><a href="#tab3">Tab 3</a></li>
+                        </ul>
+                    </div>
+                    <div id="tab1"> <!-- style="background-color: green"> -->
+                        <h1>First tab content</h1>
+                        <img src="flower1.jpg" />
+                        <p>tab 2 - flower1</p>
+                    </div>
+                    <div id="tab2"> <!-- style="background-color: yellow"> -->
+                        <h1>Second tab content</h1>
+                        <img src="flower2.jpg" />
+                    </div>
+                    <div id="tab3"> <!-- style="background-color: red"> -->
+                        <h1>Third tab content</h1>
+                        <img src="flower3.jpg" />
+                    </div>
+                </div>
+            </div>
+            <div data-role="footer" data-position="fixed">
+                <h4>Page Footer</h4>
+            </div>
+        </div>
+    </body>
+</html>

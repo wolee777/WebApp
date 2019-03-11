@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>jQuery mobile - app</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.2/jquery.mobile-1.1.2.min.css" />
+        <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+        <script src="http://code.jquery.com/mobile/1.1.2/jquery.mobile-1.1.2.min.js"></script>
+    </head>
+    <body>
+        <div data-role="page" id="page1">
+            <div data-role="header">
+                <h1>ListView</h1>
+            </div>
+            <div data-role="content">
+                <p>Page content goes here.</p>
+                <ul data-role="listview" data-inset="true"
+                    data-filter="true" data-filter-placeholder="Input search keyword">
+                    <li data-role="listdivider">A<span class="ui-li-count">1</span></li>
+                    <li><a href="#">Apple</a></li>
+                    <li data-role="listdivider">B<span class="ui-li-count">1</span></li>
+                    <li><a href="#">Banana</a></li>
+                    <li data-role="listdivider">M<span class="ui-li-count">2</span></li>
+                    <li><a href="#">Mango</a><li>
+                    <li><a href="#">Melon</a><li>
+                    <li data-role="listdivider">W<span class="ui-li-count">1</span></li>
+                    <li><a href="#">Water melon</a></li>
+                </ul>
+                <br />
+                <ul data-role="listview" data-inset="true">
+                    <li><a href="#">
+                            <p class="ui-li-aside">2019/03/11</p>
+                            <h3>ListView</h3>
+                            <p>data array</p>
+                            <p><strong>array data</strong> list view print strong
+                                data array data
+                                list view print strong data</p>
+                        </a>
+                    </li>
+                    <li data-role="listdivider">A</li>
+                    <li><a href="#">Apple</a></li>
+                    <li data-role="listdivider" data-divider-theme="a">B</li>
+                    <li><a href="#">Banana</a></li>
+                    <li data-role="listdivider" data-divider-theme="c">L</i>
+                    <li><a href="#"><img src="listimg.png">List 1<span class="ui-li-count">5</span></a></li>
+                    <li><a href="#"><img src="listicon.png" class="ui-li-icon">List 2<span class="ui-li-count">17</span></a></li>
+                    <li><a href="#"><img src="listicon.png" class="ui-li-icon">List 3<span class="ui-li-count">hot</span></a></li>
+                    <li><a href="#"><img src="listicon.png" class="ui-li-icon">List 4<span class="ui-li-count">new</span></a></li>
+                </ul>
+            </div>
+            <div data-role="footer" data-position="fixed">
+                <h4>Page Footer</h4>
+            </div>
+        </div>
+    </body>
+</html>
