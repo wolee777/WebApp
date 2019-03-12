@@ -1,0 +1,798 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head><title>
+	Taeyo.NET jQuery + WebService Board
+</title><link href="css/Site.css" rel="stylesheet" type="text/css" /><link href="css/uploadify.css" rel="stylesheet" type="text/css" />
+
+    <script src="js/jquery-1.3.2.min.js" type="text/javascript"></script>
+    <script src="js/jquery.form.js" type="text/javascript"></script>
+    <script src="js/jquery.cookie.js" type="text/javascript"></script>
+    <script src="js/jquery.simplemodal-1.2.3.min.js" type="text/javascript"></script>
+    <script src="js/jquery-ui-1.7.1.custom.min.js" type="text/javascript"></script>
+
+    <script src="js/Common.js" type="text/javascript"></script>
+    <script src="js/Init.js" type="text/javascript"></script>
+    <script src="js/Forum.js" type="text/javascript"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("#ctl00_userid")
+                .css("color", "silver")
+                .focus(function() {
+                    $(this).css("color", "black")
+                    if ($(this).val() == "아이디") { $(this).val(""); }
+                })
+                .blur(function() {
+                    if ($(this).val() == "") {
+                        $(this).css("color", "silver");
+                        $(this).val("아이디");
+                    }
+                });
+
+
+            $("#goBoard").click(function() {
+                var selectedBoard = $("select#workPart").val();
+                location.href = "/Forum/";
+
+            });
+
+            $("#accordion").accordion();
+        });
+    </script>
+</head>
+<body style="margin:0px;">
+    <form name="aspnetForm" method="post" action="default.aspx" id="aspnetForm">
+<div>
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKMjA4MzU0MjMxNg9kFgJmD2QWAgIDD2QWBAIBDw9kFgIeBXN0eWxlBS1mbG9hdDpyaWdodDtwYWRkaW5nOjRweCAwcHggMHB4IDVweDtkaXNwbGF5OjtkAgMPD2QWAh8ABT1jb2xvcjpncmVlbjtmbG9hdDpyaWdodDtwYWRkaW5nOjNweCAwcHggMHB4IDVweDtkaXNwbGF5Om5vbmU7ZGSADIsbT9ujhjpCnPXz/Ktgt2gU/A==" />
+</div>
+
+<div>
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="C3D4D5A3" />
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEWBQL+g+ytBQLls+XjAwKxqrhHAoOUjMgJArC7iLcPtOvmPT0MCc3fZ7l+vV0Roijb0oU=" />
+</div>
+    <table cellpadding="0" cellspacing="0" width="100%" style="background-color:White">
+        <tr>
+            <td class="siteBar" style="width:30px">
+                <img style="float:left;" src="images/forumHeaderLeftEdge.png" />
+                    <div style="float:left; padding: 5px 0px 0px 5px;">
+                        <a href="/">홈</a>
+                    </div>
+                <img style="float:right;" src="images/forumHeaderRightEdge.png" />
+            </td>
+            <td class="siteBar">
+                <img style="float:left;" src="images/forumHeaderLeftEdge.png" />
+                    <div style="float:left; padding: 5px 0px 0px 5px;">
+                        Taeyo.NET jQuery + WebService Board
+                    </div>
+                <img style="float:right;" src="images/forumHeaderRightEdge.png" />
+
+                <div id="ctl00_loginArea" style="float:right;padding:4px 0px 0px 5px;display:;">
+
+                    <input name="ctl00$userid" type="text" value="아이디" id="ctl00_userid" style="width:80px;" />
+                    <input name="ctl00$pwd" type="password" id="ctl00_pwd" style="width:80px" />
+                    <input type="submit" name="ctl00$Login" value="로그인" id="ctl00_Login" />
+
+</div>
+                <div id="ctl00_loginStatus" style="color:green;float:right;padding:3px 0px 0px 5px;display:none;">
+
+                    <span id="ctl00_loginName" style="font-weight:bold;"></span>
+                    <input type="submit" name="ctl00$reLogin" value="재로그인" id="ctl00_reLogin" style="width:80px" />
+
+</div>
+
+            </td>
+            <td class="siteBar" style="width:40px">
+                <img style="float:left;" src="images/forumHeaderLeftEdge.png" />
+                     <div style="float:left; padding: 5px 0px 0px 5px;">메일</div>
+                <img style="float:right;" src="images/forumHeaderRightEdge.png" />
+            </td>
+        </tr>
+    </table>
+
+    <table cellpadding="0" cellspacing="0" border="0" width="100%" style="background-color:White;">
+        <tr>
+            <td style="padding:20px;vertical-align:top">
+
+    <script src="js/jquery.uploadify.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        var forumListRowTemplate =
+                        "<tr style='background:white' seq='{0}' commentCnt='{5}' depth='{6}' isDeleted='{7}'>" +
+                            "   <td style='text-align:right;;padding-right:10px'>{0}</td>" +
+                            "   <td align='left'><a href='#' seq='{0}'>{1}</a></td>" +
+                            "   <td style='text-align:center'>{2}</td>" +
+                            "   <td style='text-align:center'>{3}</td>" +
+                            "   <td style='text-align:right;padding-right:10px'>{4}</td>" +
+                        "</tr>";
+
+        var commentListRowTemplate =
+                        "<tr style='background:white' cseq='{0}'>" +
+		                    "<td style='width:80px'>{1}</td>" +
+		                    "<td>{2}</td>" +
+		                    "<td style='font-size:11px;width:80px'>{3}</td>" +
+		                "</tr>";
+
+        var commentCountInfoTemplate = " <span id='commentInfo'><img src='images/forumCommentCnt.gif' />" +
+                                                    "(<span id='commentCntVal'>{0}</span>)</span>";
+
+        var forumReTemplate = "<img src='images/forumBlank.gif' style='width:{0}px;height:0px' /><img src='images/forumRe.gif' /> ";
+
+        var fileListTemplate = "<div fileSeq='{0}'>" +
+            "<a href='Storage/{1}' target='_new'><img src='images/F.gif' border='0' /> <u>{1}</u> ({2})</a></div> ";
+
+        var _currentSeq = 0;
+        var _currentThread = 0;
+        var _currentDepth = 0;
+
+        var _currentPage = 1;
+        var _totalItemCount = 0;
+        var _pageCount = 0;
+
+        //########### 페이지 당 출력 레코드 수 #########
+        var _recordPerPage = 16;
+        //##################################################
+
+        var iLoop = 1;
+        var iLoopEnd = 10;
+
+        var Forum = function() {}
+
+        $(document).ready(function() {
+
+            if (Common.queryString("page").length > 0) {
+                _currentPage = Common.queryString("page");
+            }
+
+            //초기에 목록을 출력한다.
+            Forum.OutputList();
+
+            //직접 하이퍼링크로 온 경우에는 해당 본문을 출력한다.
+            if (Common.queryString("seq").length > 0) {
+                _currentSeq = Common.queryString("seq");
+                Forum.OutputContent();
+                Forum.OutputCommentList();
+            }
+
+            //목록 버튼을 누르면, 본문을 숨긴다.
+            $("img.toList").click(function() { $("div#content").slideUp(); Forum.OutputList();  });
+
+            //답변하기 링크 설정
+            $("img#reply").click(function() {
+                location.href = Common.format("Write.aspx?seq={0}&thread={1}&depth={2}&page={3}"
+                    , _currentSeq, _currentThread, _currentDepth, _currentPage);
+            });
+
+            //수정하기 링크 설정
+            $("img#edit").click(function() {
+                location.href = "Write.aspx?Mode=E&seq=" + _currentSeq + "&page=" + _currentPage;
+            });
+
+            //삭제하기 링크 설정
+            $("img#del").click(function() {
+                if (confirm("정말로 삭제하시겠습니까?"))
+                    Forum.DeleteForumData();
+                else return;
+            });
+
+            //인증되지 않은 사용자에게는 글쓰기 관련 버튼, 코멘트 입력창 모두 히든처리
+            if ($.cookie("userID") == null) {
+                $("#write2").hide();
+                $("#formComment").hide();
+            }
+
+            //파일 업로드 설정(Flash)
+            $("div#fileUpload").fileUpload({
+                'uploader': 'uploadify/uploader.swf',
+                'cancelImg': 'uploadify/cancel.png',
+                'script': 'upload.aspx',
+                'folder': 'files',
+                'multi': true,
+                'buttonImg': 'uploadify/ForumUpload.gif',
+                'displayData': 'speed',
+                'onAllComplete': Forum.OutputFileList
+            });
+            $("#uploadFileButton").click(function() {
+                //파일 업로드에 추가 데이터 설정(seq 값)
+                $("div#fileUpload").fileUploadSettings("scriptData", '&seq=' + _currentSeq);
+                $("div#fileUpload").fileUploadStart();
+            });
+
+            //코멘트 등록 버튼 클릭 처리기
+            $("#addComment").click(function() {
+                var comment = $("#comment").val();
+                if (comment.replace(/\s/g, "").length == 0) {
+                    alert("코멘트를 작성해 주십시오");
+                    return;
+                }
+                if (comment.length > 1000) {
+                    alert("코멘트의 길이가 너무 깁니다. 1000글자 제한입니다");
+                    return;
+                }
+
+                var postVal = " { pSeq : " + _currentSeq + ", " +
+                    "   comment : \"" + Common.replaceJSONSafeEscape(comment) + "\" }";
+
+                Common.showProgressBox("코멘트를 저장중입니다...");
+                $.ajax({
+                    url: "ForumAuth.asmx/AddNewComment",
+                    data: postVal,
+                    success: function(data) {
+                        $("#comment").val("");
+
+                        //포럼 코멘트 목록 재출력
+                        Forum.OutputCommentList();
+
+                        //현재 목록의 제목 TD를 찾아가서, 코멘트 값이 있는 span 값을 바꾼다
+                        var cell = $("tr[seq='" + _currentSeq + "'] td:eq(1)");
+                        var commentVal = cell.find("span#commentCntVal");
+                        if (commentVal.length > 0) // 이미 코멘트 정보를 가지고 이는 글이라면
+                        {
+                            commentVal.text(commentVal.text() * 1 + 1);    //코멘트 수 +1 하기
+                        }
+                        else //아직 코멘트 이미지와 수가 존재하지 않는 상황이라면!
+                        {
+                            cell.append(Common.format(commentCountInfoTemplate, 1));
+                        }
+
+                        //모달 닫기
+                        $.modal.close();
+                    }
+                });
+            });
+
+            //Ajax 에러 처리 핸들러 등록
+            $("#errorInfo").ajaxError(function(info, obj) {
+                var err;
+                eval("err = " + obj.responseText);
+                alert(err.Message);
+                if (err.Message.indexOf("인증되지 않은") > -1) {
+                    location.href = "/";
+                }
+
+                $(info.target)
+                    .empty()
+                    .html(obj.responseText);
+                $.modal.close();
+            });
+        });
+
+        Forum.OutputList = function() {
+            Common.showProgressBox("로딩중입니다...");
+            $.ajax({
+                url: "Forum.asmx/GetForumList",
+                data: "{ pageNo: " + _currentPage + " , recordSize: " + _recordPerPage + " }",
+                success: function(data) {
+                    // 웹서비스가 리턴하는 데이터는 data.d를 해야 가져올 수 있다. 도대체 "d:"가 왜 붙는지...
+                    var result, list, listData;
+                    eval("result = " + data.d);
+
+                    _totalItemCount = result.ItemCount;
+                    list = result.List;
+
+                    $("#ForumList tbody").empty();
+
+                    var inputDate;
+                    $.each(list, function(index, obj) {
+                        //최신 글이면 new 이미지 처리
+                        inputDate = obj.InputDate.split(" ")[0];
+                        if (Forum.IsRecentData(obj.InputDate)) {
+                            inputDate += " <img src='images/new.gif' />";
+                        }
+
+                        listData = Common.format(forumListRowTemplate,
+                                    obj.Seq,
+                                    Common.escapeHTML(obj.Subject),
+                                    obj.UserId,
+                                    inputDate,
+                                    obj.ReadCount,
+                                    obj.CommentCount,
+                                    obj.Depth,
+                                    obj.Deleted
+                                );
+
+                        $("#ForumList tbody").append(listData);
+                    });
+
+                    //답변 들여쓰기 및 코멘트 출력
+                    $("tr[seq]").each(function() {
+                        //각 목록에서 코멘트수가 0 이상이면 그를 표현낸다.
+                        var count = $(this).attr("commentCnt");
+                        if (count > 0) {
+                            $(this).find("td:eq(1)")
+                                .append(Common.format(commentCountInfoTemplate, count));
+                        }
+                        //답변 글이라면 들여쓰기 및 Re 이미지를 추가한다
+                        var depth = $(this).attr("depth");
+                        if (depth > 0) {
+                            $(this).find("td:eq(1)")
+                                .prepend(Common.format(forumReTemplate, depth * 7));
+                        }
+                        //답변이 있지만 삭제된 질문 글이라면 비활성 처리한다
+                        var isDeleted = $(this).attr("isDeleted");
+                        if (isDeleted == "True") {
+                            var temp = $(this).find("td:eq(1)").text();
+                            $(this).find("td:eq(1)")
+                                .empty()
+                                .append($("<strike style=\"color:silver\"></strike>").text(temp))
+                                .end()
+                                .css("color", "silver");
+                        }
+                    });
+
+                    //정상적인 목록의 하이퍼링크에 onclick 이벤트를 건다
+                    $("tr[isDeleted=False] a[seq]").click(function() {
+
+                        _currentSeq = $(this).attr("seq");
+
+                        $("#ForumList tr").css("background", "white");
+                        $(this).parents("tr[seq]").css("background", "khaki");
+
+
+                        Forum.OutputContent();
+                        Forum.OutputCommentList();
+                    });
+
+                    $("div#list").hide().slideDown('normal', function() { $.modal.close(); });
+
+
+                    //페이저 출력
+                    Forum.OutputPager();
+
+                } //end success
+            }); //end ajax
+        }
+
+        //본문 데이터 수신 및 출력
+        Forum.OutputContent = function() {
+            Common.showProgressBox("본문을 로드하는 중입니다...");
+	    $("#comment").val("");
+
+            var currentUrl = location.protocol + "//" + location.host + location.pathname
+                                + "?seq=" + _currentSeq;
+            $("#directLink")
+                .css("font-size", "11px")
+                .html("이글의 직접 링크는 <a style='color:blue' href='" + currentUrl + "'>" + currentUrl + "</a> 입니다");
+
+            $.ajax({
+                url: "Forum.asmx/GetForumData",
+                data: "{ seq : " + _currentSeq + ", updateReadCount : \"true\" }",
+                success: function(data) {
+                    var result;
+                    eval("result = " + data.d);
+                    var c = result.Data;
+
+                    Forum.manipulateUIByAuth(result.isAuth == "True" ? true : false, c.UserId);
+
+                    var content = c.Content;
+                    if (c.UseHtml == "False") content = Common.escapeHTML(content);
+                    //UseHtml, UseAutoBR
+
+                    $("div#title").text(c.Subject);
+                    _currentThread = c.Thread * 1;
+                    _currentDepth = c.Depth * 1;
+                    $("span#writer").text(c.UserId);
+                    $("span#inputDate").text(c.InputDate);
+                    $("span#read").text(c.ReadCount);
+                    $("pre#text").html(content
+                                        .replace(/\r/g, "&nbsp;<br />") //IE
+                                        .replace(/\n/g, "&nbsp;<br />") //FF
+                                        .replace(/\s\s/g, " &nbsp;")
+                                        .replace(/\t/g, " &nbsp; &nbsp;"));
+
+                    //클릭된 row의 조회수를 증가시킨다(화면 업데이트).
+                    var readCell = $("tr[seq=" + _currentSeq + "] td:last");
+                    readCell.text(readCell.text() * 1 + 1);
+
+                    //관련 첨부파일 목록을 가져온다.
+                    Forum.OutputFileList();
+
+                    $.modal.close();
+                    $("div#content").hide().slideDown();
+                }
+            });
+        }
+
+        //사용자의 인증 여부에 따라, 글쓴이와 같은지에 따라 명령버튼을 숨김
+        Forum.manipulateUIByAuth = function(isAuth, writer) {
+
+            //현재 사용자가 세션이 있다면, 글쓰기 및 답변하기를 보이고
+            if (isAuth) {
+                $("#authCommand").show();
+                $("#formComment").show();
+
+                //글쓴이와 동일하면, 수정/삭제버튼 및 파일 업로드를 보인다
+                if ($.cookie("userID") == writer) {
+                    $("#authorCommand").show();
+                    $("#fileUploadCell").show();
+                    $("#uploadFileButton").show();
+                }
+                else {
+                    $("#authorCommand").hide();
+                    $("#fileUploadCell").hide();
+                    $("#uploadFileButton").hide();
+                }
+            }
+            else {   //인증이 끊기거나 안된 사용자라면
+                $("#authorCommand").hide();
+                $("#authCommand").hide();
+                $("#formComment").hide();
+                $("#fileUploadCell").hide();
+                $("#uploadFileButton").hide();
+            }
+        }
+
+        // 관련 코멘트 수신 및 출력
+        Forum.OutputCommentList = function() {
+            $("#CommentList tbody").empty();
+            $.ajax({
+                url: "Forum.asmx/GetForumDataComment",
+                data: "{ seq : " + _currentSeq + " }",
+                success: function(data) {
+                    if (data.d.length == 0) return;
+                    var commentList, commentData;
+                    eval("commentList = " + data.d);
+                    $.each(commentList, function(index, obj) {
+                        commentData = Common.format(commentListRowTemplate,
+                            obj.cSeq,
+                            obj.Name,
+                            obj.Comment
+                                .replace(/\r/g, "&nbsp;<br />")
+                                .replace(/\s\s/g, " &nbsp;")
+                                .replace(/\t/g, " &nbsp; &nbsp;")
+                            , obj.Date);
+                        $("#CommentList tbody").append(commentData);
+                    });
+
+                    //홀수 라인은 배경색을 다르게 한다.
+                    $("#CommentList tr:odd").css("background", "#F8F8F8");
+
+                    //자신이 쓴 코멘트에는 삭제링크를 보이게 한다.
+                    $("#CommentList td:last-child").each(function() {
+                        var row = $(this).parent();
+                        var writer = row.find("td:first").text();
+                        //글쓴이와 현재 사용자가 동일하다면
+                        if ($.cookie("userID") == writer) {
+                            var cSeq = row.attr("cseq");
+                            $("<img src='Images/commentDel.gif' />")
+                                .appendTo($(this).parent().find("td:last"))
+                                .click(function() {
+                                    if (confirm("정말로 삭제하시겠습니까?"))
+                                        Forum.DeleteComment(cSeq);
+                                    else return;
+                                });
+                        }
+                    });
+
+                    //코멘트 제일 마지막으로 이동시킨다.
+                    //본문이 처음 로드될 때에는 hide().Slidexxx() 효과때문에 무시된다(원하던 바다).
+                    self.location.href = "#endOfCommentList";
+                }
+            });
+        }
+
+        //글 삭제 메서드
+        Forum.DeleteForumData = function() {
+            $.ajax({
+                url: "ForumAuth.asmx/DeleteForumData",
+                data: "{ seq : " + _currentSeq + " , thread : " + _currentThread + " }",
+                success: function(data) {
+                    $("div#content").slideUp();
+                    Forum.OutputList();
+                }
+            });
+        }
+
+        //코멘트 삭제 메서드
+        Forum.DeleteComment = function(cSeq) {
+            $.ajax({
+                url: "ForumAuth.asmx/DeleteComment",
+                data: "{ pSeq : " + _currentSeq + " , cSeq : " + cSeq + " }",
+                success: function(data) {
+                    //포럼 코멘트 목록 재출력
+                    Forum.OutputCommentList();
+
+                    //현재 목록의 제목 TD를 찾아가서, 코멘트 값이 있는 span 값을 바꾼다
+                    var cell = $("tr[seq='" + _currentSeq + "'] td:eq(1)");
+                    var commentVal = cell.find("span#commentCntVal");
+                    commentVal.text(commentVal.text() - 1);    //코멘트 수 -1 하기
+
+                    //만일, 코멘트 수가 0인 상태라면, 코멘트 이미지와 값을 아예 제거한다
+                    if (commentVal.text() * 1 == 0) {
+                        cell.children("#commentInfo").remove();
+                    }
+                }
+            });
+        }
+
+        //첨부파일 목록 출력
+        Forum.OutputFileList = function() {
+            $("#fileList").empty();
+            $.ajax({
+                url: "Forum.asmx/GetFileList",
+                data: "{ seq : " + _currentSeq + " }",
+                success: function(data) {
+                    //아무런 파일첨부 데이터가 없으면 구역을 숨긴다.
+                    //하지만, 작성자 본인이라면 구역을 보여야 하지.
+                    if (data.d.length == 0 && $.cookie("userID") == $("span#writer").text()) {
+                        $("#fileUploadRow").show();
+                        return;
+                    }
+                    if (data.d.length == 0) {
+                        $("#fileUploadRow").hide();
+                        return;
+                    }
+
+                    $("#fileUploadRow").show();
+                    var fileList, file;
+                    eval("fileList = " + data.d);
+                    $.each(fileList, function(index, obj) {
+                        file = $(Common.format(fileListTemplate, obj.fileSeq, obj.name, obj.size));
+                        if ($.cookie("userID") == $("span#writer").text()) {
+                            $("<img src='Images/commentDel.gif' />").click(function() {
+                                if (confirm("정말로 삭제하시겠습니까?"))
+                                    Forum.DeleteFile(obj);
+                                else return;
+                            }).prependTo(file);
+                        }
+                        file
+                            .appendTo($("#fileList"));
+                    });
+                    $("#fileList").prepend($("<b style='color:brown'>첨부 파일 목록</b><p>"));
+                }
+            });
+        }
+        //첨부파일 제거
+        Forum.DeleteFile = function(file) {
+            $.ajax({
+                url: "ForumAuth.asmx/DeleteFileData",
+                data: "{ seq : " + file.fileSeq + ", fileName : \"" + file.name + "\" }",
+                success: function(data) {
+                    Forum.OutputFileList();
+                }
+            });
+        }
+
+        //페이저 출력부
+        Forum.OutputPager = function() {
+            _pageCount = Math.ceil(_totalItemCount / _recordPerPage);
+            var pageLink;
+
+            $("#pager").empty();
+            if (iLoopEnd > _pageCount) iLoopEnd = _pageCount;
+            for (var page = iLoop; page <= iLoopEnd; page++) {
+                pageLink = $("<a> " + page + " </a>")
+                    .addClass("link")
+                    .click(function() {  //페이지 번호를 클릭하는 경우의 처리
+                        _currentPage = parseInt($(this).text());
+                        $("#pager a").removeClass("pageLinkSelected");
+                        $(this).addClass("pageLinkSelected");
+                        $("div#content").slideUp();
+                        Forum.OutputList(); //리스트 재출력
+                    });
+                //현재 페이지만 스타일을 다르게 한다
+                if (page == _currentPage) pageLink.addClass("pageLinkSelected");
+                $("#pager").append(pageLink);
+            }
+
+            //이전 10 페이지 관련 처리
+            if (_currentPage > 10) {
+                $("#pagePrev10")
+                    .attr("src", "images/Prev10_A.gif")
+                    .addClass("link")
+                    .click(Forum.GoPrevPage);
+            }
+            else {
+                $("#pagePrev10").attr("src", "images/Prev10_B.gif").removeClass("link");
+                $("#pagePrev10").unbind("click", Forum.GoPrevPage);
+            }
+
+            //다음 10 페이지 관련 처리
+            if (_pageCount > iLoopEnd) {
+                $("#pageNext10")
+                    .attr("src", "images/Next10_A.gif")
+                    .addClass("link")
+                    .click(Forum.GoNextPage);
+            }
+            else {
+                $("#pageNext10").attr("src", "images/Next10_B.gif").removeClass("link");
+                $("#pageNext10").unbind("click", Forum.GoNextPage);
+            }
+        }
+
+        Forum.GoNextPage = function() {
+            iLoop += 10; iLoopEnd += 10;
+            if (iLoopEnd > _pageCount) iLoopEnd = _pageCount;
+            _currentPage = iLoop;
+
+            $("div#content").slideUp();
+            Forum.OutputList(); //리스트 재출력
+        }
+
+        Forum.GoPrevPage = function() {
+            iLoop -= 10; iLoopEnd -= 10;
+            iLoopEnd = Math.ceil(iLoopEnd / 10) * 10; //최종구역이 아니라면, 페이지 end 수를 10의 배수로 맞춘다
+            if (iLoop < 1) iLoopEnd = 1;
+            if (iLoopEnd < 10) iLoopEnd = 10;
+            _currentPage = iLoop;
+
+            $("div#content").slideUp();
+            Forum.OutputList(); //리스트 재출력
+        }
+
+        //주어진 시간문자열이 최신글인지를 판별하는 함수
+        Forum.IsRecentData = function(d) {   //d는 2008-4-12 20:23:40 과 같은 포맷이어야 함
+            var boolRecent = false;
+            var dTemp = d.split(" ");
+            if (dTemp.length < 2) return;
+
+            var date = dTemp[0].split("-");
+            var time = dTemp[1].split(":");
+            var cDate = new Date(date[0], date[1]-1, date[2], time[0], time[1], time[2]);
+
+            var hoursApart = Math.abs(Math.round((new Date() - cDate) / 3600000));
+            if (hoursApart < 30)  // 30시간 이내에 올라온 글이 최신글 ㅎㅎ
+                boolRecent = true;
+            //1000* 60 * 60 / 3600000
+
+            return boolRecent;
+        }
+
+    </script>
+
+    <!-- 포럼 본문 //-->
+    <div id="content" style="display:none">
+        <div style="width:680px; font-size:14px; text-align:left"><b>포럼 본문</b></div><br />
+	    <table id="t2" cellspacing="0" cellpadding="4" style="background-color:#efefef;width:680px;">
+		    <tr>
+		        <td class="siteBar">
+		            <img style="float:left;" src="images/forumHeaderLeftEdge.png" />
+		            <div style="float:left; padding: 8px 0px 0px 5px;font-weight:bold" id="title"></div>
+		            <img style="float:right;" src="images/forumHeaderRightEdge.png" />
+		        </td>
+		    </tr>
+		    <tr>
+		        <td style="background:white">
+		            <span style="float:left">작성자 : <span id="writer"></span></span>
+		            <span style="float:right">작성일 : <span id="inputDate"></span>, 조회 : <span id="read"></span></span>
+		        </td>
+		    </tr>
+		    <tr>
+		        <td align="left" style="background:#FAFAFA;border:solid 1px silver; height:30px;padding:7px">
+		            <span id="directLink" style="float:right"></span><br />
+		            <pre id="text"></pre>
+		        </td>
+		    </tr>
+		    <tr id="fileUploadRow" style="display:none">
+		        <td style="background:white;border:solid 1px silver;border-top:solid 1px white">
+		            <table width="100%">
+		                <tr>
+		                    <td id="fileUploadCell" style="width:380px;vertical-align:top">
+		                        <div id="fileUpload" /></td>
+		                    <td id="fileList"></td>
+		                </tr>
+		            </table>
+		        </td>
+		    </tr>
+		    <tr>
+		        <td align="right" style="border-bottom:solid 1px #dddddd">
+		            <img id="uploadFileButton" src="images/forumFileSave.gif" class="link" style="display:none;float:left" />
+
+                    <span id="authorCommand" style="display:none">
+                    <img id="edit" src="images/forumEdit.gif" class="link" />
+                    <img id="del" src="images/forumDelete.gif" class="link" />
+                    </span>
+                    <span id="authCommand" style="display:none">
+                    <img id="reply" src="images/forumReply.gif" class="link" />
+                    <a id="write" href="Write.aspx"><img src="images/forumInsert.gif" class="link" /></a>
+                    </span>
+                    <img src="images/forumList.gif" class="toList" />
+		        </td>
+		    </tr>
+	    </table>
+
+
+	    <!-- 코멘트 입력부 -->
+	    <div id="formComment">
+	        <table cellspacing="0"cellpadding="6"
+                style="border-bottom:solid 1px silver; width:680px; height:100px; background:gray">
+                <tr style="background:#F2F2F2">
+                    <td style="width:580px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <img src="images/ForumComment.gif" style="vertical-align:middle" />
+                        &nbsp;&nbsp;<font color="gray">[1000자 이내]</font><br />
+	                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	                    <textarea name="comment" rows="2" cols="80" id="comment"
+	                        wrap="hard" style="border:solid 1px silver;height:60px;width:520px;"></textarea>
+                    </td>
+                    <td style="width:100px">
+	                    <image id="addComment" src="images/forumAddComment.gif" />
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <!-- 코멘트 출력부 -->
+        <table id="CommentList" cellspacing="0"cellpadding="5"
+            style="border-bottom:solid 1px silver; width:680px; background:gray">
+            <tbody></tbody>
+        </table>
+        <a name="#endOfCommentList"></a>
+        <br />
+    </div>
+
+<!-- 포럼 목록 출력부 -->
+<div style="width:680px; font-size:14px; text-align:left">
+<b>포럼 글 목록</b></div><br />
+<div id="list">
+	<table id="ForumList" cellspacing="1" cellpadding="4" style="border:solid 1px silver; width:680px">
+		<thead>
+		    <tr>
+			    <th class="siteBar" style="width:50px;">
+			        <img style="float:left;" src="images/forumHeaderLeftEdge.png" />
+			        <div style="float:left; padding: 8px 0px 0px 5px;">번호</div>
+			        <img style="float:right;" src="images/forumHeaderRightEdge.png" />
+			    </th>
+			    <th class="siteBar" style="width:390px;">
+			        <img style="float:left;" src="images/forumHeaderLeftEdge.png" />
+			        <div style="float:left; padding: 8px 0px 0px 5px;">제목</div>
+			        <img style="float:right;" src="images/forumHeaderRightEdge.png" />
+			    </th>
+			    <th class="siteBar" style="width:80px;">
+			        <img style="float:left;" src="images/forumHeaderLeftEdge.png" />
+			        <div style="float:left; padding: 8px 0px 0px 25px;">작성자</div>
+			        <img style="float:right;" src="images/forumHeaderRightEdge.png" />
+			    </th>
+			    <th class="siteBar" style="width:100px;">
+			        <img style="float:left;" src="images/forumHeaderLeftEdge.png" />
+			        <div style="float:left; padding: 8px 0px 0px 25px;">작성일</div>
+			        <img style="float:right;" src="images/forumHeaderRightEdge.png" />
+			    </th>
+			    <th class="siteBar" style="width:60px;">
+			        <img style="float:right;" src="images/forumHeaderRightEdge.png" />
+			        <div style="float:right; padding: 8px 10px 0px 5px;">조회</div>
+			    </th>
+			</tr>
+		</thead>
+		<tbody>
+		</tbody>
+	</table>
+</div>
+
+<!-- 명령 버튼  -->
+<table id="command" cellspacing="0" width="680px" style="margin-top:5px">
+	<tr>
+	    <td style="padding-left:10px">
+	        <img id="pagePrev10" src="images/Prev10_B.gif" />
+	        <span id="pager"></span>
+	        <img id="pageNext10" src="images/Next10_B.gif" />
+	    </td>
+		<td align="right" style="height:22px">
+			<a id="write2" href="Write.aspx"><img src="images/forumInsert.gif" alt="작성하기" class="link" /></a>
+		</td>
+	</tr>
+</table>
+<table id="Table2" cellspacing="0" width="680px">
+	<tr>
+		<td align="left">
+		    <div id="errorInfo" style="table-layout:fixed;width:650px; color:Red"></span>
+		</td>
+	</tr>
+</table>
+
+
+
+            </td>
+        </tr>
+    </table>
+
+    <!-- ajax 호출시 상태창으로 보여줄 부분 -->
+    <div id="progressBox" style="display:none;padding:10px;">
+        <a href='#' id="close" style="float:right; color:silver; padding-right:3px;">x</a>
+        <p style="text-align:center;width:100%">
+            <img src="Images/loader2.gif" />
+        </p>
+	    <p style="text-align:center;width:100%;" id="message"></p>
+    </div>
+    </form>
+    <br />
+
+</body>
+</html>
