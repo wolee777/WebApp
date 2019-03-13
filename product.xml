@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE productinfo SYSTEM "product.dtd" >
+<?xml-stylesheet type="text/css" href="student2.css" ?>
+<productinfo>
+    <product id="001">
+        <name>갤럭시 S5</name>
+        <company>삼성</company>
+        <price>980,000</price>
+    </product>
+    <product id="002">
+        <name>G3</name>
+        <company>LG</company>
+        <price>880,000</price>
+    </product>
+</productinfo>
