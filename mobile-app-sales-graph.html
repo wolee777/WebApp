@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>jQuery mobile - app</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.2/jquery.mobile-1.1.2.min.css" />
+        <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+        <script src="http://code.jquery.com/mobile/1.1.2/jquery.mobile-1.1.2.min.js"></script>
+
+        <link rel="stylesheet" href="jqplot/jquery.jqplot.min.css" />
+        <script src="jqplot/jquery.jqplot.min.js"></script>
+
+        <script src="jqplot/plugins/jqplot.barRenderer.min.js"></script>
+        <script src="jqplot/plugins/jqplot.categoryAxisRenderer.min.js"></script>
+        <script src="jqplot/plugins/jqplot.canvasTextRenderer.min.js"></script>
+        <script src="jqplot/plugins/jqplot.canvasAxisLabelRenderer.min.js"></script>
+        <script src="jqplot/plugins/jqplot.pointLabels.min.js"></script>
+
+        <script src="sales-graph.js"></script>
+    </head>
+    <body>
+        <div data-role="page" id="pagehome">
+            <div data-role="header">
+                <h1>Sales Management</h1>
+            </div>
+            <div data-role="content">
+                <div data-role="controlgroup">
+                    <a href="#pageappend" data-role="button" id="appendsales" data-rel="dialog">판매 정보 입력</a>
+                    <a href="#printsales" data-role="button" id="printsales" data-rel="dialog">판매 현황표</a>
+                    <a href="#graphsales" data-role="button" id="graphsales" data-rel="dialog">판매 현황 Graph</a>
+		        </div>
+            </div>
+            <div data-role="footer" data-position="fixed">
+                <h4>Korea company</h4>
+            </div>
+        </div>
+        <div data-role="page" id="pageappend">
+            <div data-role="header">
+                <h1>판매 정보 입력</h1>
+            </div>
+            <div data-role="content">
+                <div data-role="fieldcontain">
+                    <label for="items">품목명</label>
+                    <select name="items" id="items">
+                        <option value="">품목을 선택하세요.</option>
+                    </select>
+                </div>
+                <div data-role="fieldcontain">
+                    <label for="quantity">판매 수량</label>
+                    <input type="text" name="quantity" id="quantity">
+                </div>
+                <div class="ui-grid-a">
+                    <div class="ui-block-a">
+                        <input type="button" id="save" value="저장">
+                    </div>
+                    <div class="ui-block-b">
+                        <a href="#pagehome" data-role="button" id="cancel">취소</a>
+                    </div>
+                </div>
+            </div>
+            <div data-role="footer" data-position="fixed">
+                <h4>Korea company</h4>
+            </div>
+        </div>
+        <div data-role="page" id="printsales">
+            <div data-role="header">
+                <h1>판매 현황표</h1>
+            </div>
+            <div data-role="content">
+                <table border="1">
+                    <thead>
+                        <th>품목명</th>
+                        <th>판매단가</th>
+                        <th>판매수량</th>
+                        <th>판매금액</th>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+            <div data-role="footer" data-position="fixed">
+                <h4>Korea company</h4>
+            </div>
+        </div>
+        <div data-role="page" id="graphsales">
+            <div data-role="header">
+                <h1>판매 현황표</h1>
+            </div>
+            <div data-role="content">
+                <div id="chartdiv" style="height: 300px; width: 300px;">
+                </div>
+            </div>
+            <div data-role="footer" data-position="fixed">
+                <h4>Korea company</h4>
+            </div>
+        </div>
+
+    </body>
+</html>

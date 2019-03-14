@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>jQuery mobile - app</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.2/jquery.mobile-1.1.2.min.css" />
+        <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+        <script src="http://code.jquery.com/mobile/1.1.2/jquery.mobile-1.1.2.min.js"></script>
+
+        <link rel="stylesheet" href="jqplot/jquery.jqplot.min.css" />
+        <script src="jqplot/jquery.jqplot.min.js"></script>
+
+        <script src="jqplot/plugins/jqplot.barRenderer.min.js"></script>
+        <script src="jqplot/plugins/jqplot.categoryAxisRenderer.min.js"></script>
+        <script src="jqplot/plugins/jqplot.canvasTextRenderer.min.js"></script>
+        <script src="jqplot/plugins/jqplot.canvasAxisLabelRenderer.min.js"></script>
+        <script src="jqplot/plugins/jqplot.pointLabels.min.js"></script>
+
+        <script>
+            $(document).ready( function() {
+                var s1 = [631, 217, 754, 1008];
+                var ticks = ['1분기', '2분기', '3분기', '4분기'];
+
+                plot1 = $.jqplot('chartdiv', [s1], {
+                    title: '막대 그래프 예제1',
+                    seriesDefaults: {
+                        renderer: $.jqplot.BarRenderer,
+                        pointLabels: { show: true }
+                    },
+                    axes: {
+                        xaxis: {
+                            renderer: $.jqplot.CategoryAxisRenderer,
+                            ticks: ticks,
+                            label: '분기',
+                            labelRenderer: $.jqplot.canvasTextRenderer
+                        },
+                        yaxis: {
+                            labelRenderer: $.jqplot.canvasAxisLabelRenderer,
+                            label: '매출액'
+                        }
+                    },
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <div data-role="page" id="page1">
+            <div data-role="header">
+                <h1>Line Chart</h1>
+            </div>
+            <div data-role="content">
+                <div id="chartdiv" style="height: 400px; width: 300px;">
+                </div>
+            </div>
+            <div data-role="footer" data-position="fixed">
+                <h4>Page Footer</h4>
+            </div>
+        </div>
+    </body>
+</html>

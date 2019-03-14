@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>jQuery mobile - app</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.2/jquery.mobile-1.1.2.min.css" />
+        <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+        <script src="http://code.jquery.com/mobile/1.1.2/jquery.mobile-1.1.2.min.js"></script>
+
+        <link rel="stylesheet" href="jqplot/jquery.jqplot.min.css" />
+        <script src="jqplot/jquery.jqplot.min.js"></script>
+
+        <script src="jqplot/plugins/jqplot.canvasTextRenderer.min.js"></script>
+        <script src="jqplot/plugins/jqplot.canvasAxisLabelRenderer.min.js"></script>
+
+        <script>
+            $(document).ready( function() {
+                var plot1 = $.jqplot('chartdiv',
+                [[[1,3], [3,7], [5,9], [7,1], [9,5], [11,3], [13,8], [15,2], [17,5]]],
+                {
+                    title: '선 그래프',
+                    axesDefaults: {
+                        labelRenderer: $.jqplot.canvasAxisLabelRenderer
+                    },
+                    axes: {
+                        xaxis: { label: "X 축" },
+                        yaxis: { label: "Y 축" }
+                    }
+                }
+                );
+            });
+        </script>
+    </head>
+    <body>
+        <div data-role="page" id="page1">
+            <div data-role="header">
+                <h1>Line Chart</h1>
+            </div>
+            <div data-role="content">
+                <div id="chartdiv" style="height: 400px; width: 300px;">
+                </div>
+            </div>
+            <div data-role="footer" data-position="fixed">
+                <h4>Page Footer</h4>
+            </div>
+        </div>
+    </body>
+</html>
