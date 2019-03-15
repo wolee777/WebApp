@@ -1,7 +1,7 @@
 $(document).ready( function() {
 	$('#btnLoad1').click( function() {
 		$.ajax({
-			url: './ajax-stuinfo.xml',
+			url: 'ajax-stuinfo.xml',
 			type: 'get',
 			dataType: 'xml',
 			timeout: 10000,
