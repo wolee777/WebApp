@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>명함 관리</title>
+		<meta charset="utf-8"/>
+		<meta name="viewport" content="initial-scale=1.0, width=device-width">
+
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css"/>
+		<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+		<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+		<script src="mobile-app-namecard.js"></script>
+
+		<style type="text/css">
+		  img { padding:10px; margin:10px 50px; width: 200px; height: 200px; }
+		  .gap { padding-top : 15px; padding-bottom: 30px; }
+		</style>
+	</head>
+	<body>
+		<!-- 시작 화면 -->
+		  <div data-role="page" id="page0">
+			<div data-role="header" data-position="fixed" data-theme="b">
+				<h1>명함 관리</h1>
+				<a href="#page0" data-icon="home" data-iconpos="notext" class="ui-btn-right">Home</a>
+			</div>
+			<div data-role="content">
+				<img src="namecard.jpg">
+				<ul data-role="listview" data-inset="true">
+					<li><a href="#page1">명함 정보 추가</a></li>
+					<li><a href="#page2">명함 정보 갱신</a></li>
+					<li><a href="#page3">명함 정보 삭제</a></li>
+					<li><a href="#page4">전체 명함 조회</a></li>
+				</ul>
+			</div>
+			<div data-role="footer" data-position="fixed" data-theme="b">
+				<h4>Namecard Management</h4>
+		    </div>
+		  </div>
+
+		 <!-- 명함정보 추가 화면 -->
+		  <div data-role="page" id="page1">
+			<div data-role="header" data-position="fixed" data-theme="b">
+				<a href="#" data-icon="back" data-rel="back" data-direction="reverse">Back</a>
+				<h1>명함 관리</h1>
+				<a href="#page0" data-icon="home" data-iconpos="notext">Home</a>
+				<div data-role="navbar">
+					<ul>
+						<li><a href="#page1">입력</a></li>
+						<li><a href="#page2">수정</a></li>
+						<li><a href="#page3">삭제</a></li>
+						<li><a href="#page4">전체검색</a></li>
+					</ul>
+				</div>
+			</div>
+			<div data-role="content">
+				<form name="form1">
+					<h3>명함 내용 입력</h3>
+					<div class="ui-body ui-body-a gap">
+						<label for="relation" class="select">관계:</label>
+						<select name="relation" id="relation" data-native-menu="false" data-mini="true" data-inline="true">
+							<option value="가족">가족</option>
+							<option value="친구">친구</option>
+							<option value="동료">동료</option>
+							<option value="기타">기타</option>
+						</select>
+						<label for="name">이름:</label>
+						<input type="text" name="name" id="name" value="" data-mini="true"/>
+						<label for="tel">전화번호:</label>
+						<input type="text" name="tel" id="tel" value="" data-mini="true"/>
+						<label for="address">주소:</label>
+						<input type="text" name="address" id="address" value="" data-mini="true"/>
+						<label for="email">e-mail:</label>
+						<input type="text" name="email" id="email" value="" data-mini="true"/>
+		            </div>
+					<div class="ui-body">
+						<fieldset class="ui-grid-a">
+							<div class="ui-block-a">
+			              	<input type="reset" id="cancel1" value="취소"/>
+							</div>
+							<div class="ui-block-b">
+			              	<input type="button" id="submit1" value="추가"/>
+							</div>
+						</fieldset>
+					</div>
+				</form>
+			</div>
+			<div data-role="footer" data-position="fixed" data-theme="b">
+				<h4>Namecard Management</h4>
+		    </div>
+		  </div>
+
+		 <!-- 명함정보 갱신 화면 -->
+		  <div data-role="page" id="page2">
+			<div data-role="header" data-position="fixed" data-theme="b">
+				<a href="#" data-icon="back" data-rel="back" data-direction="reverse">Back</a>
+				<h1>명함 관리</h1>
+				<a href="#page0" data-icon="home" data-iconpos="notext">Home</a>
+				<div data-role="navbar">
+					<ul>
+						<li><a href="#page1">입력</a></li>
+						<li><a href="#page2">수정</a></li>
+						<li><a href="#page3">삭제</a></li>
+						<li><a href="#page4">전체검색</a></li>
+					</ul>
+				</div>
+			</div>
+			<div data-role="content">
+				<form name="form2">
+					<h3>명함 내용 수정</h3>
+					<div class="ui-body ui-body-a gap">
+						<label for="uName">검색이름:</label>
+						<input type="search" name="uName" id="uName" value="" data-mini="true"/>
+						<label for="uRelation" class="select">관계:</label>
+						<select name="uRelation" id="uRelation" data-native-menu="false" data-mini="true" data-inline="true">
+							<option value="가족">가족</option>
+							<option value="친구">친구</option>
+							<option value="동료">동료</option>
+							<option value="기타">기타</option>
+						</select>
+						<label for="uName2">이름:</label>
+						<input type="text" name="uName2" id="uName2" value="" data-mini="true"/>
+						<label for="uTel">전화번호:</label>
+						<input type="text" name="uTel" id="uTel" value="" data-mini="true"/>
+						<label for="uAddress">주소:</label>
+						<input type="text" name="uAddress" id="uAddress" value="" data-mini="true"/>
+						<label for="uEmail">e-mail:</label>
+						<input type="text" name="uEmail" id="uEmail" value="" data-mini="true"/>
+		            </div>
+					<div class="ui-body">
+						<fieldset class="ui-grid-b">
+							<div class="ui-block-a">
+		    	                <input type="reset" id="cancel2" value="취소"/>
+							</div>
+							<div class="ui-block-b">
+				                <input type="button" id="submit2" value="수정"/>
+							</div>
+							<div class="ui-block-c">
+				                <input type="button" id="search2" value="검색"/>
+							</div>
+						</fieldset>
+					</div>
+				</form>
+			</div>
+			<div data-role="footer" data-position="fixed" data-theme="b">
+				<h4>Namecard Management</h4>
+		    </div>
+		  </div>
+
+		<!-- 명함정보 삭제 화면 -->
+		  <div data-role="page" id="page3">
+			<div data-role="header" data-position="fixed" data-theme="b">
+				<a href="#" data-icon="back" data-rel="back" data-direction="reverse">Back</a>
+				<h1>명함 관리</h1>
+				<a href="#page0" data-icon="home" data-iconpos="notext">Home</a>
+				<div data-role="navbar">
+					<ul>
+						<li><a href="#page1">입력</a></li>
+						<li><a href="#page2">수정</a></li>
+						<li><a href="#page3">삭제</a></li>
+						<li><a href="#page4">전체검색</a></li>
+					</ul>
+				</div>
+			</div>
+			<div data-role="content">
+				<form name="form3">
+					<h3>명함 내용 삭제</h3>
+					<div class="ui-body ui-body-a gap">
+						<label for="dName">검색이름:</label>
+						<input type="search" name="dName" id="dName" value="" data-mini="true"/>
+						<label for="dRelation" class="select">관계:</label>
+						<select name="dRelation" id="dRelation" data-native-menu="false" data-mini="true" data-inline="true">
+							<option value="가족">가족</option>
+							<option value="친구">친구</option>
+							<option value="동료">동료</option>
+							<option value="기타">기타</option>
+						</select>
+						<label for="dTel">전화번호:</label>
+						<input type="text" name="dTel" id="dTel" value="" data-mini="true"/>
+						<label for="dAddress">주소:</label>
+						<input type="text" name="dAddress" id="dAddress" value="" data-mini="true"/>
+						<label for="dEmail">e-mail:</label>
+						<input type="text" name="dEmail" id="dEmail" value="" data-mini="true"/>
+					</div>
+					<div class="ui-body">
+						<fieldset class="ui-grid-b">
+							<div class="ui-block-a">
+		                 	<input type="reset" id="cancel3" value="취소"/>
+							</div>
+							<div class="ui-block-b">
+		                    <input type="button" id="submit3" value="삭제"/>
+							</div>
+							<div class="ui-block-c">
+		                    <input type="button" id="search3" value="검색"/>
+							</div>
+						</fieldset>
+					</div>
+				</form>
+			</div>
+			<div data-role="footer" data-position="fixed" data-theme="b">
+				<h4>Namecard Management</h4>
+		    </div>
+		  </div>
+
+		<!-- 전체 명함조회 화면 -->
+		  <div data-role="page" id="page4">
+			<div data-role="header" data-position="fixed" data-theme="b">
+				<a href="#" data-icon="back" data-rel="back" data-direction="reverse">Back</a>
+				<h1>명함 관리</h1>
+				<a href="#page0" data-icon="home" data-iconpos="notext">Home</a>
+				<div data-role="navbar">
+					<ul>
+						<li><a href="#page1">입력</a></li>
+						<li><a href="#page2">수정</a></li>
+						<li><a href="#page3">삭제</a></li>
+						<li><a href="#page4">전체검색</a></li>
+					</ul>
+				</div>
+			</div>
+			<div data-role="content">
+				<h3>명함 내용 검색</h3>
+				<div class="ui-body ui-body-a gap">
+					<fieldset data-role="controlgroup" data-type="horizontal" style="text-align:right">
+		            	<input type="button" id="first" value="|<"/>
+		                <input type="button" id="prev" value="<"/>
+		                <input type="button" id="next" value=">"/>
+		                <input type="button" id="last" value=">|"/>
+		            </fieldset>
+					<label for="sName">검색이름:</label>
+					<input type="search" name="sName" id="sName" value="" data-mini="true"/>
+					<label for="sRelation" class="select">관계:</label>
+					<select name="sRelation" id="sRelation" data-native-menu="false" data-mini="true" data-inline="true">
+						<option value="가족">가족</option>
+						<option value="친구">친구</option>
+						<option value="동료">동료</option>
+						<option value="기타">기타</option>
+					</select>
+					<label for="sName">이름:</label>
+					<input type="text" name="sName" id="sName" value="" data-mini="true"/>
+					<label for="dTel">전화번호:</label>
+					<input type="text" name="dTel" id="dTel" value="" data-mini="true"/>
+					<label for="dAddress">주소:</label>
+					<input type="text" name="dAddress" id="dAddress" value="" data-mini="true"/>
+					<label for="dEmail">e-mail:</label>
+					<input type="text" name="dEmail" id="dEmail" value="" data-mini="true"/>
+		        </div>
+				<div class="ui-body">
+					<fieldset class="ui-grid-a">
+						<div class="ui-block-a">
+					       <input type="reset" id="cancel4" value="취소"/>
+						</div>
+						<div class="ui-block-b">
+					       <input type="button" id="search4" value="검색"/>
+						</div>
+					</fieldset>
+				</div>
+			</div>
+			<div data-role="footer" data-position="fixed" data-theme="b">
+				<h4>Namecard Management</h4>
+		    </div>
+		  </div>
+	</body>
+</html>
